@@ -53,6 +53,7 @@ function parseTimeDiff(now, then) {
 function evalForFunAndList(fun, liStr) {
     fun(function(ret) {
       console.log(ret.items);
+        $(liStr).text('');
       for (var v=0; v<ret.items.length; v++) { 
         s = ret.items[v]['seconds'];
         console.log(s);
@@ -61,7 +62,6 @@ function evalForFunAndList(fun, liStr) {
         var inTime = parseTimeDiff(new Date, then);
         console.log(inTime);
 
-        $(liStr).text('');
 
         var li = document.createElement('li');
         $(li).text(inTime);
