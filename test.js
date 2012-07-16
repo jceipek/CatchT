@@ -4,7 +4,24 @@ function callback(call, cb) {
 }
 
 function bus89morn(cb) {
-  $.getJSON('http://proximobus.appspot.com/agencies/mbta/stops/02730/predictions/by-route/89.js?callback=?', cb);
+  $.getJSON('http://proximobus.appspot.com/agencies/mbta/stops/02730/predictions/by-route/89.js?callback=?', 
+  function (ret) {
+    
+
+    return (function (ret) {
+
+      for (var v=0; v<ret.items.length; v++) {
+        runid = ret.items[v].run_id;
+        $.getJSON('http://proximobus.appspot.com/agencies/mbta/routes/89/runs/'+runid+'.js?callback=?', function (r) {
+          (function (r) {
+            ret.items[v].display_name = r.display_name
+          })(r);
+        });
+      }
+      return ret;
+    }
+    )(ret); 
+  });
 }
 
 function bus71morn(cb) {
@@ -23,7 +40,7 @@ function bus89night(cb) {
   //05104 Davis Square
   //89_1_var0
   //89_1_var1
-  $.getJSON('http://proximobus.appspot.com/agencies/mbta/stops/05104/predictions/by-route/71.js?callback=?', cb);
+  $.getJSON('http://proximobus.appspot.com/agencies/mbta/stops/05104/predictions/by-route/89.js?callback=?', cb);
 //  callback($.get('http://proximobus.appspot.com/agencies/mbta/stops/02730/predictions/by-route/89.json'), cb);
 }
 
@@ -64,6 +81,12 @@ function evalForFunAndList(fun, liStr) {
 
 
         var li = document.createElement('li');
+        if (ret.items[v].display_name != undefined)
+        {
+           $(li).text(inTime+' '+ret.items[v].display_name); 
+        } else {
+          $(li).text(inTime);  
+        }
         $(li).text(inTime);
         $(li).appendTo($(liStr));
       }
