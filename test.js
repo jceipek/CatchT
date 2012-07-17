@@ -13,6 +13,7 @@ function bus89morn(cb) {
       for (var v=0; v<ret.items.length; v++) {
         runid = ret.items[v].run_id;
         $.getJSON('http://proximobus.appspot.com/agencies/mbta/routes/89/runs/'+runid+'.js?callback=?', function (r) {
+          // Seems to fail due to a Proximobus API issue. Maybe switch to MBTA site directly.
           (function (r) {
             ret.items[v].display_name = r.display_name
           })(r);
