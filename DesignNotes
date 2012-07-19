@@ -1,0 +1,22 @@
+MBTA Transit App Design
+
+Why should finding the route home/to work require multiple apps?
+Why is it so hard to connect routes with real-time tracking data for trains and busses?
+Why do apps forget about us as soon as we give them information?
+
+Important Factors:
+- Access timeframe (Don't make users navigate through multiple menus or do extra work)
+- MBTA/Route Familiarity (First time - don't know any bus/train names and destinations; information in the world vs the head)
+
+Notes
+- Most likely route automatically chosen on startup
+  - Starting point is probably current location
+  - End point selected by dragging or auto-complete typing
+
+- What stop am I at?
+- How long will it take for me to arrive?
+- I'm on a moving bus. Is it the right one?
+
+
+
+
