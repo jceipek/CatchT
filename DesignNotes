@@ -5,6 +5,7 @@ Why is it so hard to connect routes with real-time tracking data for trains and 
 Why do apps forget about us as soon as we give them information?
 
 Important Factors:
+- Commute Frequency
 - Access timeframe (Don't make users navigate through multiple menus or do extra work)
 - MBTA/Route Familiarity (First time - don't know any bus/train names and destinations; information in the world vs the head)
 
@@ -12,6 +13,9 @@ Notes
 - Most likely route automatically chosen on startup
   - Starting point is probably current location
   - End point selected by dragging or auto-complete typing
+  - Convenience over fine-tuning configuration
+
+- Design before Development
 
 - What stop am I at?
 - How long will it take for me to arrive?
